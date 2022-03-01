@@ -6,7 +6,7 @@ rm -rf ru.txt
 chmod +x update_target.sh
 bash -c "./update_target.sh"
 
-for TARGET in $(head -n 1 ru.txt); do
+for TARGET in $(cat ru.txt); do
   sed -i 's/IP_TARGET/'${TARGET}'/g' .github/workflows/action.yml
   git checkout -b target_${TARGET}
   git add .; git commit -m "add"
