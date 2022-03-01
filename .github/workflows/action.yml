@@ -3,7 +3,7 @@ name: start_it
 on: push
 
 env:
-  TARGET: IP_TARGET
+  TARGET: 176.103.130.130
 
 jobs:
   hello-world:
